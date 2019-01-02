@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700,900');
+@import '~bootstrap/scss/bootstrap';
+@import '~./variables.scss';
+@import '~./mixins.scss';
+$hamburger-layer-color: #fff;
+$hamburger-layer-width: 30px;
+$hamburger-layer-spacing: 3px;
+$hamburger-padding-x: 0px;
+$hamburger-padding-y: 0px;
+@import '~hamburgers/_sass/hamburgers/hamburgers.scss';
+body {
+  font-family: 'Lato', Arial, Helvetica, sans-serif;
+  font-size: 16px;
+}
+
+p{
+  &:last-child{
+    margin-bottom: 0;
+  }
+}
+a{
+  transition: all 200ms;
+}
+label{
+  color: $bluedark;
+  font-weight: bold;
+  font-size: 14px;
+  small{
+    font-size: 8px;
+    text-transform: uppercase;
+    padding-left: 5px;
+    font-weight: bold;
+  }
+}
+@include small-device {
+  .hidden-xs{
+    display: none !important;
+  }
+}
+hr{
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.19);
+  border-bottom: 1px solid rgba(78, 78, 78, 0.19);
+}
+::selection {
+  background: $orange;
+  color: #fff;
+}
+
+.form-control{
+  color: $blue;
+  &::placeholder{
+    color: $blue;
+  }
+  &:focus{
+    color: $blue;
+  }
+}
+.needs-validation.was-validated{
+  .form-control{
+    &[required]{
+      &:invalid{
+        border-color: $red;
+      }
+      &:invalid + .checked-icon{
+        fill: $red;
+      }
+      &:valid + .checked-icon{
+        fill: $green;
+      }
+    }
+    &:valid:not([required]){
+      border-color: #ced4da;
+    }
+  }
+}
+
+// vue animations
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to{
+  opacity: 0;
+}
+
+// bootstrap
+.btn-orange{
+  background-color: $orange;
+  color: #000;
+  border: 2px solid #000;
+  border-radius: 0;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 14px;
+  &:hover{
+    background-color: #000;
+    color: #fff;
+  }
+}
